@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Blaze</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="nav-inner container">
+    <a href="index.php" class="logo">Blaze<span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="index.php" class="nav-link">Home</a>
+      <a href="index.php#menu" class="nav-link">Menu</a>
+      <a href="dashboard.php" class="nav-link">My orders</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="index.php#menu" class="btn btn-ghost">Add more items</a>
+    </div>
+  </div>
+</header>
+
+<main class="co-wrap">
+  <div class="container">
+    <div class="section-head"><h2>Checkout</h2><p>Address bharein aur order confirm karein</p></div>
+
+    <div class="co-grid">
+      <!-- LEFT -->
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div class="co-card">
+          <h3>Delivery details</h3>
+          <div class="co-two">
+            <div class="form-row"><label for="coName">Full name</label><input type="text" id="coName" placeholder="Your name" required></div>
+            <div class="form-row"><label for="coPhone">Phone</label><input type="tel" id="coPhone" placeholder="+92 300 1234567" required></div>
+          </div>
+          <div class="form-row"><label for="coAddress">Address</label><textarea id="coAddress" rows="3" placeholder="House #, street, area" required></textarea></div>
+          <div class="co-two">
+            <div class="form-row"><label for="coCity">City</label><input type="text" id="coCity" value="Rawalpindi"></div>
+            <div class="form-row"><label for="coNote">Note (optional)</label><input type="text" id="coNote" placeholder="Extra sauce, no onion..."></div>
+          </div>
+        </div>
+
+        <div class="co-card">
+          <h3>Payment method</h3>
+          <div class="pay-row" id="payRow">
+            <div class="pay-opt active" data-pay="Cash on Delivery"><strong>💵 Cash on delivery</strong><span>Door par cash</span></div>
+            <div class="pay-opt" data-pay="Card"><strong>💳 Card</strong><span>Debit / Credit</span></div>
+            <div class="pay-opt" data-pay="Easypaisa"><strong>📱 Easypaisa</strong><span>Mobile wallet</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="co-card">
+        <h3>Order summary</h3>
+        <div id="coItems"></div>
+        <div class="promo-row">
+          <input type="text" id="promoInput" placeholder="Promo code (BLAZE40)">
+          <button class="btn btn-ghost" id="promoBtn">Apply</button>
+        </div>
+        <div class="cart-line"><span>Subtotal</span><span id="coSub">Rs. 0</span></div>
+        <div class="cart-line"><span>Discount</span><span id="coDisc">Rs. 0</span></div>
+        <div class="cart-line"><span>Delivery</span><span id="coDel">Rs. 0</span></div>
+        <div class="cart-line total" style="margin-top:8px"><span>Total</span><span id="coTotal">Rs. 0</span></div>
+        <button class="btn btn-primary full big" id="placeOrder" style="margin-top:18px">Place order</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="blz-toast" id="blzToast"></div>
+<script src="js/checkout.js"></script>
+</body>
+</html>
